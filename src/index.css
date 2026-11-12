@@ -111,10 +111,10 @@
     letter-spacing: 0;
   }
 
-  .portfolio-hero { min-height: min(850px, 92svh); }
+  .portfolio-hero { min-height: max(1100px, 95svh); }
   .hero-overlay { background: var(--hero-overlay); }
   @media (max-width: 767px) {
-    .portfolio-hero { min-height: 92svh; }
+    .portfolio-hero { min-height: max(980px, 95svh); }
     .hero-overlay { background: hsl(var(--dark) / 0.76); }
   }
 
