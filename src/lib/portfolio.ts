@@ -1,5 +1,3 @@
-import cvAsset from "@/assets/Siphiwe-Malindi-CV.pdf.asset.json";
-
 export const profile = {
   name: "Siphiwe Malindi",
   direction: "Aspiring Business Systems Analyst",
@@ -8,7 +6,7 @@ export const profile = {
   institution: "Eduvos",
   status: "Final-year student",
   expectedCompletion: "June 2027",
-  cvUrl: cvAsset.url,
+  cvUrl: `${import.meta.env.BASE_URL}Siphiwe-Malindi-CV.pdf`,
   email: "smalindi19@gmail.com",
   phone: "+27 60 974 1314",
   location: "South Africa",

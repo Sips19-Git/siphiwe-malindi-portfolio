@@ -10,3 +10,9 @@
 - [x] Extend education and career content from the uploaded CV while preserving animations.
 - [x] Use the supplied CV for downloads and connect repositories to relevant project pages.
 - [x] Verify desktop/mobile interactions, CV access and project links.
+
+# Netlify image compatibility
+- [x] Audit every image reference and tracked image filename.
+- [x] Save the original About photo and supplied CV locally and replace Lovable-only references.
+- [x] Verify every page, desktop/mobile images, and production-compatible asset references.
+- [x] Commit corrected assets and references for GitHub sync.
