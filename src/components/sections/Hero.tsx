@@ -18,7 +18,7 @@ const Hero = () => (
         <div style={{ animationDelay: "0.6s" }} className="animate-fade-up mt-8 flex flex-wrap gap-3">
           <Button asChild size="lg"><a href="#portfolio">Explore my projects <ArrowUpRight /></a></Button>
           <Button asChild variant="secondary" size="lg"><a href="#contact">Get in touch</a></Button>
-          <Button asChild variant="ghost" size="lg" className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"><a href="/Siphiwe-Malindi-CV.pdf" download><Download /> Download CV</a></Button>
+          <Button asChild variant="ghost" size="lg" className="text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"><a href={profile.cvUrl} download="Siphiwe-Malindi-CV.pdf"><Download /> Download CV</a></Button>
         </div>
       </div>
       <a href="#about" className="mt-8 inline-flex items-center gap-2 text-sm text-primary-foreground/65"><ArrowDown className="h-4 w-4" /> About & academic background</a>

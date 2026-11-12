@@ -15,11 +15,11 @@ const About = () => (
           <p>I have practical project and freelance experience in gathering and analysing business requirements, communicating with clients, documenting functional specifications, developing user stories and translating business needs into technical solutions.</p>
           <p>My knowledge includes the Software Development Life Cycle (SDLC), database management, system design and software testing. I combine technical understanding with analytical thinking, communication, documentation and problem-solving to bridge the gap between business requirements and technical implementation.</p>
         </div>
-        <div id="education" className="reveal mt-8 flex items-start gap-4 border-y border-border py-6">
+        <div className="reveal mt-8 flex items-start gap-4 border-y border-border py-6">
           <GraduationCap className="mt-1 h-7 w-7 shrink-0 text-pink" />
           <div><p className="mb-2 text-xs uppercase text-muted-foreground">Current education</p><h3 className="text-lg font-medium">{profile.qualification}</h3><p className="mt-1 text-muted-foreground">{profile.institution} · {profile.status}</p></div>
         </div>
-        <Button asChild variant="link" className="mt-5 px-0"><a href="/Siphiwe-Malindi-CV.pdf" download><Download /> Download CV</a></Button>
+        <Button asChild variant="link" className="mt-5 px-0"><a href={profile.cvUrl} download="Siphiwe-Malindi-CV.pdf"><Download /> Download CV</a></Button>
       </div>
     </div>
   </section>

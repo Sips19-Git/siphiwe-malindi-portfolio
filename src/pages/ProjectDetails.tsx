@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Github, ArrowUpRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/sections/Footer";
 import ProjectFlow from "@/components/ProjectFlow";
 import { Button } from "@/components/ui/button";
 import { getProject, projects } from "@/lib/portfolio";
 import NotFound from "@/pages/NotFound";
+import { repositories, repositoryUrl } from "@/lib/repositories";
 
 const ProjectDetails = () => {
   const { slug } = useParams();
@@ -18,6 +19,7 @@ const ProjectDetails = () => {
   }, [project]);
   if (!project) return <NotFound />;
   const nextProject = projects[(projects.indexOf(project) + 1) % projects.length];
+  const repository = repositories.find(item => item.projectSlug === project.slug);
   return <>
     <Navigation />
     <main className="pt-24">
@@ -38,6 +40,7 @@ const ProjectDetails = () => {
             <section><h2 className="display mb-4 text-2xl font-bold">My role & key contributions</h2><p className="mb-5 font-medium text-pink">{project.role}</p><ol className="space-y-5">{project.contributions.map((contribution, index) => <li key={contribution} className="flex gap-4 leading-relaxed text-muted-foreground"><span className="text-sm font-medium text-pink">0{index + 1}</span>{contribution}</li>)}</ol></section>
           </div>
           <aside className="space-y-8">
+            {repository && <Button asChild variant="outline"><a href={repositoryUrl(repository)} target="_blank" rel="noopener noreferrer"><Github /> View repository <ArrowUpRight /></a></Button>}
             <div className="overflow-hidden rounded-lg border border-border"><ProjectFlow steps={project.flow} /></div>
             <section><h2 className="display mb-5 text-2xl font-bold">Skills demonstrated</h2><ul className="space-y-3 text-sm text-muted-foreground">{project.skills.map(skill => <li key={skill} className="border-b border-border pb-3">{skill}</li>)}</ul></section>
             {project.technologies && <section><h2 className="display mb-4 text-2xl font-bold">Technologies used</h2><ul>{project.technologies.map(technology => <li key={technology}>{technology}</li>)}</ul></section>}

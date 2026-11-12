@@ -12,6 +12,9 @@ import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 import Experience from "@/components/sections/Experience";
 import Leadership from "@/components/sections/Leadership";
+import Repositories from "@/components/sections/Repositories";
+import Delivery from "@/components/sections/Delivery";
+import Education from "@/components/sections/Education";
 
 const Index = () => {
   useReveal();
@@ -25,9 +28,12 @@ const Index = () => {
       <SectionMarquee variant="dark" items={["BA Skills", "Requirements Elicitation", "User Stories", "Process Modelling", "Stakeholder Engagement", "Validation —"]} />
       <Services />
       <Portfolio />
+      <Repositories />
       <Experience />
+      <Delivery />
       <SectionMarquee variant="pink" items={["Tech Stack", "Java", "C++", "PHP", "JavaScript", "HTML", "CSS", "MySQL", "MongoDB", "UML —"]} />
       <Skills />
+      <Education />
       <Leadership />
       <SectionMarquee variant="dark" items={["Get In Touch", "Internships", "Graduate Programmes", "Entry-Level Opportunities", "smalindi19@gmail.com"]} />
       <Contact />

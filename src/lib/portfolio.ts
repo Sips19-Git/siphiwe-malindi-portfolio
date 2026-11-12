@@ -1,3 +1,5 @@
+import cvAsset from "@/assets/Siphiwe-Malindi-CV.pdf.asset.json";
+
 export const profile = {
   name: "Siphiwe Malindi",
   direction: "Aspiring Business Systems Analyst",
@@ -5,10 +7,19 @@ export const profile = {
   qualification: "BSc Information Technology – Software Engineering",
   institution: "Eduvos",
   status: "Final-year student",
+  expectedCompletion: "June 2027",
+  cvUrl: cvAsset.url,
   email: "smalindi19@gmail.com",
   phone: "+27 60 974 1314",
   location: "South Africa",
 };
+
+export const deliveryStages = [
+  { title: "Understand the need", description: "Gather client objectives, clarify organisational needs and communicate expectations before development." },
+  { title: "Define the requirements", description: "Document user stories, functional requirements and system specifications to connect business needs with technical decisions." },
+  { title: "Shape the solution", description: "Use system design, user flows and team collaboration to translate agreed requirements into a working solution." },
+  { title: "Validate & refine", description: "Test features against requirements, resolve issues, retest and incorporate client feedback before handover." },
+];
 
 export const analysisSkills = [
   { title: "Requirements & specifications", skills: ["Requirements Elicitation, Analysis and Documentation", "User Stories and Functional Requirements", "Functional and Non-Functional Specifications", "Requirements Validation and Management"] },

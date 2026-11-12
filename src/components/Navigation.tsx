@@ -6,6 +6,7 @@ export const links = [
   { label: "About", href: "#about" },
   { label: "BA Skills", href: "#services" },
   { label: "Projects", href: "#portfolio" },
+  { label: "Repositories", href: "#repositories" },
   { label: "Experience", href: "#experience" },
   { label: "Technical Skills", href: "#technical-skills" },
   { label: "Leadership", href: "#leadership" },
