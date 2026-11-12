@@ -16,3 +16,7 @@
 - [x] Save the original About photo and supplied CV locally and replace Lovable-only references.
 - [x] Verify every page, desktop/mobile images, and production-compatible asset references.
 - [x] Commit corrected assets and references for GitHub sync.
+
+# SM favicon
+- [x] Create an SM favicon matching the portfolio and replace the default icon.
+- [x] Verify the icon loads and commit it for deployment.
