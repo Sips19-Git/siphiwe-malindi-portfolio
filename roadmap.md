@@ -25,3 +25,7 @@
 - [x] Bundle a licensed geometric font similar to the supplied reference.
 - [x] Apply it from About Me onward without changing the hero or navbar.
 - [x] Verify desktop/mobile typography and save the changes.
+
+# Device layouts
+- [x] Adapt headings, images, navigation, and project layouts for narrow phones and tablets.
+- [x] Verify all project pages, menu links, repository filters, and contact fields across device sizes.

@@ -106,6 +106,14 @@
     font-family: var(--font-content);
   }
 
+  /* Let nested columns shrink without forcing content beyond the viewport. */
+  .container :is(.grid, .flex) > * { min-width: 0; }
+  .container :is(h1, h2, h3, p, li) { overflow-wrap: anywhere; }
+  @media (max-width: 639px) {
+    .container { padding-inline: 1rem; }
+    .portfolio-hero h1 { font-size: 2.5rem; }
+  }
+
   .floating-navigation {
     box-shadow: var(--shadow-navigation);
     transition: transform 350ms var(--transition-smooth), box-shadow 350ms var(--transition-smooth), border-color 350ms;
