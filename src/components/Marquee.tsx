@@ -1,28 +1,3 @@
-const items = [
-  "Creative Developer",
-  "UI/UX Design",
-  "Java Developer",
-  "Frontend Engineer",
-  "Problem Solver",
-  "Creative Mind",
-  "Open to Work",
-  "Full Stack",
-];
-
-const Marquee = () => {
-  const loop = [...items, ...items];
-  return (
-    <div className="overflow-hidden border-y-2 border-dark bg-pink py-3">
-      <div className="flex w-max animate-marquee items-center gap-10 whitespace-nowrap">
-        {loop.map((t, i) => (
-          <span key={i} className="flex items-center gap-10 text-sm font-medium uppercase tracking-[0.2em] text-dark">
-            {t}
-            <span className="h-1.5 w-1.5 rounded-full bg-dark" />
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-};
-
+const items = ["Business Analysis", "Requirements Engineering", "System Design", "Stakeholder Communication"];
+const Marquee = () => <div className="border-y border-dark/10 bg-pink py-4 text-primary-foreground"><div className="container flex flex-wrap justify-between gap-x-6 gap-y-2">{items.map(item => <span key={item} className="text-xs font-medium uppercase">{item}</span>)}</div></div>;
 export default Marquee;

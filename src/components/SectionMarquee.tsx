@@ -1,39 +1,4 @@
-type Props = {
-  items?: string[];
-  variant?: "pink" | "dark" | "cream";
-};
-
-const defaultItems = [
-  "Front-End Developer",
-  "Creative Coder",
-  "UI / UX Enthusiast",
-  "Responsive Design",
-  "Performance First",
-  "Clean Code",
-  "Open to Work",
-  "Let's Build —",
-];
-
-const variants = {
-  pink: "bg-pink text-dark border-dark",
-  dark: "bg-dark text-white border-pink",
-  cream: "bg-cream text-dark border-dark",
-};
-
-const SectionMarquee = ({ items = defaultItems, variant = "pink" }: Props) => {
-  const loop = [...items, ...items];
-  return (
-    <div className={`overflow-hidden border-y-2 py-3 ${variants[variant]}`}>
-      <div className="flex w-max animate-marquee items-center gap-10 whitespace-nowrap">
-        {loop.map((t, i) => (
-          <span key={i} className="flex items-center gap-10 text-sm font-medium uppercase tracking-[0.2em]">
-            {t}
-            <span className="h-1.5 w-1.5 rounded-full bg-current" />
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-};
-
+type Props = { items?: string[]; variant?: "pink" | "dark" | "cream" };
+const variants = { pink: "bg-pink text-primary-foreground", dark: "bg-dark text-primary-foreground", cream: "bg-cream text-foreground" };
+const SectionMarquee = ({ items = ["Business Analysis", "Requirements Engineering", "Systems Design"], variant = "pink" }: Props) => <div className={`border-y border-border/20 py-4 ${variants[variant]}`}><div className="container flex flex-wrap justify-between gap-4">{items.map(item => <span key={item} className="text-xs font-medium uppercase">{item}</span>)}</div></div>;
 export default SectionMarquee;

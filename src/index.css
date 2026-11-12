@@ -35,7 +35,7 @@
     --input: 0 0% 90%;
     --ring: 333 87% 60%;
 
-    --radius: 1rem;
+    --radius: 0.5rem;
 
     /* Extended brand tokens */
     --pink: 333 87% 60%;
@@ -55,6 +55,7 @@
     --gradient-fallback: linear-gradient(135deg, #1A1A1A 0%, #2D1A2E 40%, #F2408A 100%);
     --shadow-card: 0 20px 60px -20px hsl(0 0% 0% / 0.15);
     --shadow-pink: 0 12px 32px -8px hsl(var(--pink) / 0.4);
+    --hero-overlay: linear-gradient(90deg, hsl(var(--dark) / 0.94) 0%, hsl(var(--dark) / 0.83) 48%, hsl(var(--dark) / 0.18) 78%, hsl(var(--dark) / 0.1) 100%);
 
     --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -72,9 +73,11 @@
 @layer base {
   * {
     @apply border-border;
+    letter-spacing: 0;
   }
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 90px;
   }
   body {
     @apply bg-background text-foreground font-body antialiased;
@@ -105,7 +108,14 @@
   }
   .bebas {
     font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 0.04em;
+    letter-spacing: 0;
+  }
+
+  .portfolio-hero { min-height: min(850px, 92svh); }
+  .hero-overlay { background: var(--hero-overlay); }
+  @media (max-width: 767px) {
+    .portfolio-hero { min-height: 92svh; }
+    .hero-overlay { background: hsl(var(--dark) / 0.76); }
   }
 
   .reveal {
@@ -141,6 +151,12 @@
     to   { opacity: 1; transform: translateY(0); }
   }
   .animate-fade-up { animation: fade-up 0.8s var(--transition-smooth) both; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
 
   @media (hover: hover) and (pointer: fine) {
     body.cursor-custom,

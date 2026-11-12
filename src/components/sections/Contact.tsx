@@ -1,115 +1,36 @@
-import { FormEvent, useState } from "react";
+import { FormEvent } from "react";
+import { Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
 import { toast } from "sonner";
-import contactPortrait from "@/assets/contact-portrait.jpg";
-import heroPortrait from "@/assets/hero-portrait.jpg";
-
-const items = [
-  { icon: "📧", label: "Email",         value: "smalindi19@gmail.com",  bg: "bg-soft-pink" },
-  { icon: "📱", label: "Phone",         value: "+27 60 974 1314",       bg: "bg-yellow/20" },
-  { icon: "📍", label: "Location",      value: "South Africa",          bg: "bg-blue/10" },
-  { icon: "💼", label: "Available For", value: "Freelance & Full-time", bg: "bg-teal/10" },
-];
+import { Button } from "@/components/ui/button";
+import SectionHeading from "@/components/SectionHeading";
+import { createContactDraft, profile } from "@/lib/portfolio";
 
 const Contact = () => {
-  const [sending, setSending] = useState(false);
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSending(true);
-    setTimeout(() => {
-      setSending(false);
-      toast.success("Message sent! I'll be in touch soon.");
-      (e.target as HTMLFormElement).reset();
-    }, 800);
+  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    window.location.href = createContactDraft(String(data.get("name") ?? ""), String(data.get("email") ?? ""), String(data.get("subject") ?? ""), String(data.get("message") ?? ""));
+    toast.info("Email draft requested. Send it from your email app to complete your message.");
   };
-
-  return (
-    <section id="contact" className="bg-white py-24 md:py-32">
-      <div className="container">
-        <div className="reveal mb-14 max-w-3xl">
-          <span className="tag-pill tag-orange mb-6">Get In Touch</span>
-          <h2 className="display leading-[0.95] text-balance">
-            <span className="block text-xl italic text-foreground/60">Let's work</span>
-            <span className="block text-5xl font-bold text-pink md:text-7xl">Together —</span>
-            <span className="script block text-4xl text-orange md:text-5xl">Say Hello!</span>
-          </h2>
-          <p className="mt-5 max-w-xl text-foreground/70">
-            Have a project in mind? I'd love to hear about it. Let's create something amazing together.
-          </p>
+  return <section id="contact" className="bg-card py-20 md:py-24">
+    <div className="container">
+      <SectionHeading eyebrow="Contact" title="Let's" accent="connect." description="I welcome conversations about Business Analysis and Business Systems Analysis internships, graduate programmes and entry-level opportunities." />
+      <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
+        <div>
+          <a href={`mailto:${profile.email}`} className="flex items-center gap-4 border-t border-border py-6 hover:text-pink"><Mail className="h-6 w-6 shrink-0 text-pink" /><div className="min-w-0"><p className="mb-1 text-xs text-muted-foreground">Email</p><p className="break-all font-medium">{profile.email}</p></div></a>
+          <a href="tel:+27609741314" className="flex items-center gap-4 border-t border-border py-6 hover:text-pink"><Phone className="h-6 w-6 text-pink" /><div><p className="mb-1 text-xs text-muted-foreground">Phone</p><p className="font-medium">{profile.phone}</p></div></a>
+          <div className="flex items-center gap-4 border-y border-border py-6"><MapPin className="h-6 w-6 text-pink" /><div><p className="mb-1 text-xs text-muted-foreground">Location</p><p className="font-medium">{profile.location}</p></div></div>
+          <p className="mt-6 text-sm leading-relaxed text-muted-foreground">Business Analysis · Business Systems Analysis · Requirements engineering · Technology-driven business solutions</p>
         </div>
-
-        <div className="grid gap-12 lg:grid-cols-2">
-          <div className="reveal space-y-6">
-            <div className="space-y-4">
-              {items.map((it) => (
-                <div key={it.label} className="flex items-center gap-4 rounded-2xl border border-border bg-cream/50 p-5 transition-all hover:border-pink/30 hover:shadow-[var(--shadow-card)]">
-                  <div className={`flex h-14 w-14 items-center justify-center rounded-xl text-2xl ${it.bg}`}>
-                    {it.icon}
-                  </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-wider text-foreground/60">{it.label}</p>
-                    <p className="text-base font-medium">{it.value}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <img src={contactPortrait} alt="" loading="lazy" className="h-48 w-full rounded-2xl object-cover" />
-              <img src={heroPortrait} alt="" loading="lazy" className="h-48 w-full rounded-2xl object-cover" />
-            </div>
-          </div>
-
-          <form onSubmit={onSubmit} className="reveal space-y-5 rounded-3xl border-2 border-pink/60 bg-cream/40 p-6 shadow-[0_0_0_6px_hsl(var(--pink)/0.15),0_25px_60px_-15px_hsl(var(--pink)/0.55)] ring-4 ring-pink/30 md:p-8">
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-              <Field name="first_name" label="First Name" placeholder="Your name" />
-              <Field name="last_name"  label="Last Name"  placeholder="Your surname" />
-            </div>
-            <Field name="email"   label="Email Address" placeholder="you@example.com" type="email" />
-            <Field name="subject" label="Subject"       placeholder="What's this about?" />
-            <div>
-              <label className="mb-2 block text-xs font-medium uppercase tracking-wider text-foreground/60">Message</label>
-              <textarea
-                name="message"
-                rows={5}
-                required
-                placeholder="Tell me about your project..."
-                className="w-full resize-none rounded-2xl border border-border bg-white px-5 py-4 text-base outline-none transition-all focus:border-pink focus:ring-2 focus:ring-pink/20"
-              />
-            </div>
-            <button
-              type="submit"
-              disabled={sending}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-pink px-8 py-4 text-base font-medium text-white transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-pink)] disabled:opacity-60 sm:w-auto"
-            >
-              {sending ? "Sending..." : "Send Message →"}
-            </button>
-          </form>
-        </div>
+        <form onSubmit={onSubmit} className="space-y-5">
+          <div className="grid gap-5 sm:grid-cols-2"><Field name="name" label="Name" placeholder="Your name" autoComplete="name" /><Field name="email" label="Email address" placeholder="you@example.com" type="email" autoComplete="email" /></div>
+          <Field name="subject" label="Subject" placeholder="Opportunity or enquiry" />
+          <div><label htmlFor="contact-message" className="mb-2 block text-sm font-medium">Message</label><textarea id="contact-message" name="message" rows={5} required placeholder="Your message" className="w-full rounded-md border border-input bg-background px-4 py-3 text-base outline-none focus:ring-2 focus:ring-ring" /></div>
+          <Button type="submit" size="lg">Compose email <ArrowUpRight /></Button>
+        </form>
       </div>
-    </section>
-  );
+    </div>
+  </section>;
 };
-
-const Field = ({
-  name,
-  label,
-  placeholder,
-  type = "text",
-}: {
-  name: string;
-  label: string;
-  placeholder: string;
-  type?: string;
-}) => (
-  <div>
-    <label className="mb-2 block text-xs font-medium uppercase tracking-wider text-foreground/60">{label}</label>
-    <input
-      name={name}
-      type={type}
-      required
-      placeholder={placeholder}
-      className="w-full rounded-full border border-border bg-white px-5 py-3.5 text-base outline-none transition-all focus:border-pink focus:ring-2 focus:ring-pink/20"
-    />
-  </div>
-);
-
+const Field = ({ name, label, placeholder, type = "text", autoComplete }: { name: string; label: string; placeholder: string; type?: string; autoComplete?: string }) => <div><label htmlFor={`contact-${name}`} className="mb-2 block text-sm font-medium">{label}</label><input id={`contact-${name}`} name={name} type={type} required autoComplete={autoComplete} placeholder={placeholder} className="w-full rounded-md border border-input bg-background px-4 py-3 text-base outline-none focus:ring-2 focus:ring-ring" /></div>;
 export default Contact;
