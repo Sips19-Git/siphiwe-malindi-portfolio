@@ -55,6 +55,8 @@
     --gradient-fallback: linear-gradient(135deg, #1A1A1A 0%, #2D1A2E 40%, #F2408A 100%);
     --shadow-card: 0 20px 60px -20px hsl(0 0% 0% / 0.15);
     --shadow-pink: 0 12px 32px -8px hsl(var(--pink) / 0.4);
+    --shadow-navigation: 0 8px 28px -8px hsl(var(--dark) / 0.18);
+    --shadow-navigation-hover: 0 16px 36px -10px hsl(var(--pink) / 0.28);
     --hero-overlay: linear-gradient(90deg, hsl(var(--dark) / 0.94) 0%, hsl(var(--dark) / 0.83) 48%, hsl(var(--dark) / 0.18) 78%, hsl(var(--dark) / 0.1) 100%);
 
     --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
@@ -90,6 +92,22 @@
 }
 
 @layer components {
+  .floating-navigation {
+    box-shadow: var(--shadow-navigation);
+    transition: transform 350ms var(--transition-smooth), box-shadow 350ms var(--transition-smooth), border-color 350ms;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .floating-navigation:hover {
+      transform: translateY(-3px);
+      border-color: hsl(var(--pink) / 0.35);
+      box-shadow: var(--shadow-navigation-hover);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .floating-navigation { transition: none; }
+    .floating-navigation:hover { transform: none; }
+  }
+
   .tag-pill {
     @apply inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em];
   }
