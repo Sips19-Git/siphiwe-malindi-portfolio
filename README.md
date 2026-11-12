@@ -582,13 +582,10 @@
   }
 }
 
-This project was built with [Lovable](https://lovable.dev).
 
 **Live app**: https://siphiwe-malindi-portfolio.lovable.app
 
 ## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/68adc1bb-39de-42a7-9220-239fde525f16).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
 - **Stay in sync**: every change made in Lovable is committed straight to this repository.
