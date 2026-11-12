@@ -9,7 +9,7 @@ const Portfolio = () => (
     <div className="container">
       <SectionHeading eyebrow="Featured projects" title="Analysis in practice." accent="Solutions with purpose." description="A selection of team, academic and freelance projects connecting requirements, system design and solution validation." />
       <div className="grid gap-6 md:grid-cols-2">
-        {projects.map((project, index) => <article key={project.slug} className="flex flex-col overflow-hidden rounded-lg border border-border bg-card transition-shadow hover:shadow-[var(--shadow-card)]">
+        {projects.map((project, index) => <article key={project.slug} className="reveal flex flex-col overflow-hidden rounded-lg border border-border bg-card transition-all duration-500 hover:-translate-y-2 hover:shadow-[var(--shadow-card)]" style={{ transitionDelay: `${index * 60}ms` }}>
           <ProjectFlow steps={project.flow} />
           <div className="flex flex-1 flex-col p-6 md:p-8">
             <p className="mb-3 text-xs text-muted-foreground">0{index + 1} / {project.subtitle}</p>

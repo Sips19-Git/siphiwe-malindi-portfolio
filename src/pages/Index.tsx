@@ -1,3 +1,6 @@
+import CustomCursor from "@/components/CustomCursor";
+import SectionMarquee from "@/components/SectionMarquee";
+import { useReveal } from "@/hooks/useReveal";
 import Navigation from "@/components/Navigation";
 import Marquee from "@/components/Marquee";
 import Hero from "@/components/sections/Hero";
@@ -11,17 +14,22 @@ import Experience from "@/components/sections/Experience";
 import Leadership from "@/components/sections/Leadership";
 
 const Index = () => {
+  useReveal();
   return (
     <main className="min-h-screen bg-background">
+      <CustomCursor />
       <Navigation />
       <Hero />
       <Marquee />
       <About />
+      <SectionMarquee variant="dark" items={["BA Skills", "Requirements Elicitation", "User Stories", "Process Modelling", "Stakeholder Engagement", "Validation —"]} />
       <Services />
       <Portfolio />
       <Experience />
+      <SectionMarquee variant="pink" items={["Tech Stack", "Java", "C++", "PHP", "JavaScript", "HTML", "CSS", "MySQL", "MongoDB", "UML —"]} />
       <Skills />
       <Leadership />
+      <SectionMarquee variant="dark" items={["Get In Touch", "Internships", "Graduate Programmes", "Entry-Level Opportunities", "smalindi19@gmail.com"]} />
       <Contact />
       <Footer />
     </main>

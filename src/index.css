@@ -152,11 +152,6 @@
   }
   .animate-fade-up { animation: fade-up 0.8s var(--transition-smooth) both; }
 
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after { animation: none !important; transition: none !important; }
-    .reveal { opacity: 1; transform: none; }
-  }
 
   @media (hover: hover) and (pointer: fine) {
     body.cursor-custom,
