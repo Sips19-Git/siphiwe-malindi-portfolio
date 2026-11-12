@@ -16,7 +16,7 @@ const Navigation = () => {
   const { pathname } = useLocation();
   const href = (hash: string) => pathname === "/" ? hash : `/${hash}`;
   useEffect(() => { setOpen(false); }, [pathname]);
-  return <nav aria-label="Main navigation" className="floating-navigation fixed inset-x-3 top-3 z-[100] mx-auto max-w-6xl rounded-3xl border border-border bg-card/95 py-3 text-foreground backdrop-blur-xl sm:inset-x-6 sm:top-5">
+  return <nav aria-label="Main navigation" className={`floating-navigation fixed inset-x-0 top-3 z-[100] border border-border bg-card/95 py-3 text-foreground backdrop-blur-xl sm:top-5 ${open ? "rounded-[2rem]" : "rounded-full"}`}>
     <div className="flex items-center justify-between gap-4 px-4 md:px-6">
       <a href={href("#home")} className="shrink-0 text-base font-medium">Siphiwe <span className="script text-xl text-pink">Malindi</span></a>
       <ul className="hidden items-center gap-5 lg:flex">{links.map(link => <li key={link.href}><a href={href(link.href)} className="text-xs font-medium transition-colors hover:text-pink">{link.label}</a></li>)}<li><Button asChild size="sm" className="h-8 rounded-full px-3 text-xs"><a href={href("#contact")}>Contact</a></Button></li></ul>
