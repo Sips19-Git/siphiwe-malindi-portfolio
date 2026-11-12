@@ -1,11 +1,10 @@
-import heroImg from "@/assets/hero-portrait.jpg";
 import { ArrowDown, ArrowUpRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { profile } from "@/lib/portfolio";
 
 const Hero = () => (
   <section id="home" className="portfolio-hero relative flex flex-col justify-end overflow-hidden bg-dark pb-12 pt-28 text-primary-foreground md:pb-16">
-    <img src={heroImg} alt="Siphiwe Malindi" className="absolute inset-0 h-full w-full object-cover object-[center_38%] md:object-[center_42%]" />
+    <img src={`${import.meta.env.BASE_URL}hero-portrait.webp`} alt="Siphiwe Malindi" loading="eager" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-[center_38%] md:object-[center_42%]" />
     <div className="hero-overlay absolute inset-0" />
     <div className="container relative z-10">
       <div className="max-w-2xl animate-fade-up">
