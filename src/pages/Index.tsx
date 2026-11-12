@@ -5,6 +5,7 @@ import SectionMarquee from "@/components/SectionMarquee";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Services from "@/components/sections/Services";
+import Portfolio from "@/components/sections/Portfolio";
 import Skills from "@/components/sections/Skills";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
@@ -24,6 +25,7 @@ const Index = () => {
         items={["What I Do", "Frontend Development", "Responsive Design", "Performance Optimization", "Clean Code", "Let's Build —"]}
       />
       <Services />
+      <Portfolio />
       <SectionMarquee
         variant="pink"
         items={["Tech Stack", "JavaScript", "HTML", "CSS", "Java", "C++", "React", "Always Learning —"]}

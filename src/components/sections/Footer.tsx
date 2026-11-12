@@ -33,10 +33,16 @@ const Footer = () => (
         <div>
           <h4 className="bebas mb-5 text-2xl text-pink">Navigate</h4>
           <ul className="space-y-3 text-base">
-            {["Home", "About", "Services", "Contact"].map((l) => (
-              <li key={l}>
-                <a href={`#${l.toLowerCase()}`} className="text-white/70 transition-colors hover:text-pink">
-                  {l}
+            {[
+              { label: "Home", href: "#home" },
+              { label: "About", href: "#about" },
+              { label: "Services", href: "#services" },
+              { label: "Work", href: "#portfolio" },
+              { label: "Contact", href: "#contact" },
+            ].map((l) => (
+              <li key={l.href}>
+                <a href={l.href} className="text-white/70 transition-colors hover:text-pink">
+                  {l.label}
                 </a>
               </li>
             ))}

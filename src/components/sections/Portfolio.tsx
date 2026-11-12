@@ -45,7 +45,7 @@ const Portfolio = () => (
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark/85 via-dark/30 to-transparent transition-all duration-500 group-hover:from-dark/95" />
               <div className="absolute inset-x-5 bottom-5 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                 <span className="inline-flex items-center gap-2 rounded-full bg-pink px-4 py-2 text-xs font-medium text-white">
                   View Project →
