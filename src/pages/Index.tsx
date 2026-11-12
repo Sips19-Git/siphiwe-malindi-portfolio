@@ -24,6 +24,7 @@ const Index = () => {
       <Navigation />
       <Hero />
       <Marquee />
+      <div className="post-hero-content">
       <About />
       <SectionMarquee variant="dark" items={["BA Skills", "Requirements Elicitation", "User Stories", "Process Modelling", "Stakeholder Engagement", "Validation —"]} />
       <Services />
@@ -38,6 +39,7 @@ const Index = () => {
       <SectionMarquee variant="dark" items={["Get In Touch", "Internships", "Graduate Programmes", "Entry-Level Opportunities", "smalindi19@gmail.com"]} />
       <Contact />
       <Footer />
+      </div>
     </main>
   );
 };

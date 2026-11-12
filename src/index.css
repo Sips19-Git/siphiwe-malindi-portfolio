@@ -2,10 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Outfit';
+  src: url('./assets/fonts/outfit-variable.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 /* Siphiwe Malindi — Editorial portfolio design system. All colors HSL. */
 
 @layer base {
   :root {
+    --font-content: 'Outfit', sans-serif;
     /* Brand palette */
     --background: 30 56% 96%;        /* cream #FDF6F0 */
     --foreground: 0 0% 10%;          /* dark  #1A1A1A */
@@ -92,6 +101,11 @@
 }
 
 @layer components {
+  .post-hero-content,
+  .post-hero-content :is(.display, .script, .bebas, .font-body, input, textarea, button, select) {
+    font-family: var(--font-content);
+  }
+
   .floating-navigation {
     box-shadow: var(--shadow-navigation);
     transition: transform 350ms var(--transition-smooth), box-shadow 350ms var(--transition-smooth), border-color 350ms;

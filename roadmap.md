@@ -20,3 +20,8 @@
 # SM favicon
 - [x] Create an SM favicon matching the portfolio and replace the default icon.
 - [x] Verify the icon loads and commit it for deployment.
+
+# Post-hero typography
+- [x] Bundle a licensed geometric font similar to the supplied reference.
+- [x] Apply it from About Me onward without changing the hero or navbar.
+- [x] Verify desktop/mobile typography and save the changes.
